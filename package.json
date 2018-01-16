@@ -1,0 +1,22 @@
+{
+  "name": "rollup-plugin-metascript",
+  "version": "0.0.1",
+  "description": "",
+  "main": "target/rollup-plugin-metascript.cjs.js",
+  "module": "target/rollup-plugin-metascript.es.js",
+  "jsnext:main": "target/rollup-plugin-metascript.es.js",
+  "scripts": {
+    "prepare": "rollup -c",
+    "test": ""
+  },
+  "keywords": [
+    "rollup-plugin",
+    "metascript"
+  ],
+  "author": "125m125",
+  "license": "MIT",
+  "dependencies": {
+    "metascript": "^1.0.0",
+    "rollup-pluginutils": "^2.0.1"
+  }
+}
