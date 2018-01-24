@@ -12,7 +12,6 @@ export default function metascript(options) {
         name: 'metascript',
         transform(code, id) {
             if (filter(id)) {
-                console.log(code);
                 return MetaScript.transform(code, id, settings);
             }
         }
