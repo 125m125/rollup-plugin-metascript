@@ -3,16 +3,21 @@ import {
 } from 'rollup-pluginutils';
 import MetaScript from 'metascript';
 
-export default function metascript(options) {
+export default function metascript(options = {}) {
     var filter = createFilter(options.include, options.exclude);
-    var settings = options.settings;
+    var scope = options.scope || {};
 
 
     return {
         name: 'metascript',
         transform(code, id) {
             if (filter(id)) {
-                return MetaScript.transform(code, id, settings);
+                if (scope && typeof scope.then === "function") {
+                    console.log("hi");
+                    return scope.then(realScope => MetaScript.transform(code, id, realScope));
+                } else {
+                    return MetaScript.transform(code, id, scope);
+                }
             }
         }
     }

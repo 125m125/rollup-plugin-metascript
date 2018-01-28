@@ -1,13 +1,13 @@
 {
   "name": "rollup-plugin-metascript",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "target/rollup-plugin-metascript.cjs.js",
   "module": "target/rollup-plugin-metascript.es.js",
   "jsnext:main": "target/rollup-plugin-metascript.es.js",
   "scripts": {
     "prepare": "rollup -c",
-    "test": ""
+    "test": "ava test/**/*Test.js"
   },
   "keywords": [
     "rollup-plugin",
@@ -18,5 +18,19 @@
   "dependencies": {
     "metascript": "^1.0.0",
     "rollup-pluginutils": "^2.0.1"
+  },
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "babel-preset-env": "^1.6.1",
+    "rollup": "^0.55.1"
+  },
+  "ava": {
+    "require": "babel-register",
+    "babel": "inherit"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
   }
 }
