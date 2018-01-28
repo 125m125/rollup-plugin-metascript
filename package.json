@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-metascript",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "target/rollup-plugin-metascript.cjs.js",
   "module": "target/rollup-plugin-metascript.es.js",
