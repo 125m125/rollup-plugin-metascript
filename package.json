@@ -1,7 +1,7 @@
 {
   "name": "rollup-plugin-metascript",
-  "version": "0.0.3",
-  "description": "",
+  "version": "0.0.4",
+  "description": "A Rollup plugin to transform code with MetaScript.",
   "main": "target/rollup-plugin-metascript.cjs.js",
   "module": "target/rollup-plugin-metascript.es.js",
   "jsnext:main": "target/rollup-plugin-metascript.es.js",
@@ -16,6 +16,17 @@
   ],
   "author": "125m125",
   "license": "MIT",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/125m125/splconfigurator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/125m125/splconfigurator/issues"
+  },
+  "homepage": "https://github.com/125m125/splconfigurator#readme",
   "dependencies": {
     "metascript": "^1.0.0",
     "rollup-pluginutils": "^2.0.1"
