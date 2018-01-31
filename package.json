@@ -7,7 +7,8 @@
   "jsnext:main": "target/rollup-plugin-metascript.es.js",
   "scripts": {
     "prepare": "rollup -c",
-    "test": "ava test/**/*Test.js"
+    "test": "ava \"test/**/*Test.js\"",
+    "checkstyle": "eslint \"src/**/*.js\" \"test/**/*.js\" --ignore-pattern \"test/resources/\""
   },
   "keywords": [
     "rollup-plugin",
@@ -22,6 +23,7 @@
   "devDependencies": {
     "ava": "^0.25.0",
     "babel-preset-env": "^1.6.1",
+    "eslint": "^4.16.0",
     "rollup": "^0.55.1"
   },
   "ava": {
