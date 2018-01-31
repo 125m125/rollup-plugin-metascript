@@ -1,7 +1,7 @@
 import {
     createFilter
-} from 'rollup-pluginutils';
-import MetaScript from 'metascript';
+} from "rollup-pluginutils";
+import MetaScript from "metascript";
 
 export default function metascript(options = {}) {
     var filter = createFilter(options.include, options.exclude);
@@ -9,7 +9,7 @@ export default function metascript(options = {}) {
 
 
     return {
-        name: 'metascript',
+        name: "metascript",
         transform(code, id) {
             if (filter(id)) {
                 if (scope && typeof scope.then === "function") {
@@ -18,6 +18,6 @@ export default function metascript(options = {}) {
                     return MetaScript.transform(code, id, scope);
                 }
             }
-        }
-    }
+        },
+    };
 }
