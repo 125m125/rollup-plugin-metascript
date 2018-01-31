@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-metascript",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A Rollup plugin to transform code with MetaScript.",
   "main": "target/rollup-plugin-metascript.cjs.js",
   "module": "target/rollup-plugin-metascript.es.js",
