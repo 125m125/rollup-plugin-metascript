@@ -7,12 +7,12 @@ npm install --save-dev rollup-plugin-metascript
 ```
 
 ```javascript
-import rollupPluginSpl from "rollup-plugin-spl";
+import rollupPluginMetascript from "rollup-plugin-metascript";
 
 export default {
     ...
     plugins: [
-        rollupPluginSpl({
+        rollupPluginMetascript({
             scope: {
                 // define your scope here
             }

@@ -13,7 +13,6 @@ export default function metascript(options = {}) {
         transform(code, id) {
             if (filter(id)) {
                 if (scope && typeof scope.then === "function") {
-                    console.log("hi");
                     return scope.then(realScope => MetaScript.transform(code, id, realScope));
                 } else {
                     return MetaScript.transform(code, id, scope);
