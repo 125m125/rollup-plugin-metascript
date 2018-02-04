@@ -6,9 +6,10 @@
   "module": "target/rollup-plugin-metascript.es.js",
   "jsnext:main": "target/rollup-plugin-metascript.es.js",
   "scripts": {
-    "prepare": "rollup -c",
+    "prepare": "npm run snyk-protect; rollup -c",
     "test": "ava \"test/**/*Test.js\"",
-    "checkstyle": "eslint \"src/**/*.js\" \"test/**/*.js\" --ignore-pattern \"test/resources/\""
+    "checkstyle": "eslint \"src/**/*.js\" \"test/**/*.js\" --ignore-pattern \"test/resources/\"",
+    "snyk-protect": "snyk protect"
   },
   "keywords": [
     "rollup-plugin",
@@ -29,7 +30,8 @@
   "homepage": "https://github.com/125m125/splconfigurator#readme",
   "dependencies": {
     "metascript": "^1.0.0",
-    "rollup-pluginutils": "^2.0.1"
+    "rollup-pluginutils": "^2.0.1",
+    "snyk": "^1.69.6"
   },
   "devDependencies": {
     "ava": "^0.25.0",
@@ -45,5 +47,6 @@
     "presets": [
       "env"
     ]
-  }
+  },
+  "snyk": true
 }
