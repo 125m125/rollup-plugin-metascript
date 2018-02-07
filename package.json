@@ -1,49 +1,70 @@
 {
-  "name": "rollup-plugin-metascript",
-  "version": "0.0.5",
-  "description": "A Rollup plugin to transform code with MetaScript.",
-  "main": "target/rollup-plugin-metascript.cjs.js",
-  "module": "target/rollup-plugin-metascript.es.js",
-  "jsnext:main": "target/rollup-plugin-metascript.es.js",
-  "scripts": {
-    "prepare": "rollup -c",
-    "test": "ava \"test/**/*Test.js\"",
-    "checkstyle": "eslint \"src/**/*.js\" \"test/**/*.js\" --ignore-pattern \"test/resources/\""
-  },
-  "keywords": [
-    "rollup-plugin",
-    "metascript"
-  ],
-  "author": "125m125",
-  "license": "MIT",
-  "directories": {
-    "test": "test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/125m125/splconfigurator.git"
-  },
-  "bugs": {
-    "url": "https://github.com/125m125/splconfigurator/issues"
-  },
-  "homepage": "https://github.com/125m125/splconfigurator#readme",
-  "dependencies": {
-    "metascript": "^1.0.0",
-    "rollup-pluginutils": "^2.0.1"
-  },
-  "devDependencies": {
-    "ava": "^0.25.0",
-    "babel-preset-env": "^1.6.1",
-    "eslint": "^4.16.0",
-    "rollup": "^0.55.1"
-  },
-  "ava": {
-    "require": "babel-register",
-    "babel": "inherit"
-  },
-  "babel": {
-    "presets": [
-      "env"
-    ]
-  }
+    "name": "rollup-plugin-metascript",
+    "version": "0.0.5",
+    "description": "A Rollup plugin to transform code with MetaScript.",
+    "main": "target/rollup-plugin-metascript.cjs.js",
+    "module": "target/rollup-plugin-metascript.es.js",
+    "jsnext:main": "target/rollup-plugin-metascript.es.js",
+    "scripts": {
+        "prepare": "rollup -c",
+        "test": "ava",
+        "coverage": "nyc --reporter=lcov --reporter=text ava",
+        "checkstyle": "eslint \"src/**/*.js\" \"test/**/*.js\" --ignore-pattern \"test/resources/\""
+    },
+    "keywords": [
+        "rollup-plugin",
+        "metascript"
+    ],
+    "author": "125m125",
+    "license": "MIT",
+    "directories": {
+        "test": "test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/125m125/splconfigurator.git"
+    },
+    "bugs": {
+        "url": "https://github.com/125m125/splconfigurator/issues"
+    },
+    "homepage": "https://github.com/125m125/splconfigurator#readme",
+    "dependencies": {
+        "metascript": "^1.0.0",
+        "rollup-pluginutils": "^2.0.1"
+    },
+    "devDependencies": {
+        "ava": "^0.25.0",
+        "babel-plugin-istanbul": "^4.1.5",
+        "babel-preset-env": "^1.6.1",
+        "eslint": "^4.16.0",
+        "nyc": "^11.4.1",
+        "rollup": "^0.55.1"
+    },
+    "ava": {
+        "files": [
+            "test/**/*Test.js"
+        ],
+        "require": "babel-register",
+        "babel": "inherit"
+    },
+    "nyc": {
+        "all": true,
+        "include": [
+            "src/**/*.js"
+        ],
+        "require": [
+            "babel-register"
+        ],
+        "exclude": "src/index.js",
+        "sourceMap": false,
+        "instrument": false
+    },
+    "babel": {
+        "presets": [
+            "env"
+        ],
+        "plugins": [
+            "istanbul"
+        ]
+    }
 }

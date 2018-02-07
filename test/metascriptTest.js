@@ -42,7 +42,7 @@ ava("transforms code with options", test => {
     });
 });
 
-ava("transforms code with promised options", test => {
+ava("transforms code with function options", test => {
     var uut = metascript({
         scope: () => {
             return {
@@ -61,13 +61,58 @@ ava("transforms code with promised options", test => {
     });
 });
 
-ava("transforms multiple codes with promised options", test => {
+ava("transforms multiple codes with function options", test => {
     var uut = metascript({
         scope: () => {
             return {
                 KEEP: true,
             };
         },
+    });
+
+    return run(uut, "test/resources/simpleCode.js").then(result => {
+        return result.generate({
+            format: "es",
+        });
+    }).then(generated => {
+        var result = generated.code;
+        test.is(result, code_noRemove);
+    }).then(() => run(uut, "test/resources/simpleCode.js").then(result => {
+        return result.generate({
+            format: "es",
+        });
+    })).then(generated => {
+        var result = generated.code;
+        test.is(result, code_noRemove);
+    });
+});
+
+ava("transforms code with promised options", test => {
+    var uut = metascript({
+        scope: new Promise(res => {
+            res({
+                KEEP: true,
+            });
+        }),
+    });
+
+    return run(uut, "test/resources/simpleCode.js").then(result => {
+        return result.generate({
+            format: "es",
+        });
+    }).then(generated => {
+        var result = generated.code;
+        test.is(result, code_noRemove);
+    });
+});
+
+ava("transforms multiple codes with function options", test => {
+    var uut = metascript({
+        scope: new Promise(res => {
+            res({
+                KEEP: true,
+            });
+        }),
     });
 
     return run(uut, "test/resources/simpleCode.js").then(result => {
