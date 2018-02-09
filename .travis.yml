@@ -1,21 +1,21 @@
 language: node_js
 node_js:
-- 'node'
+- node
 
 env:
   global:
-    secure: etVeWNJqXx8o720t/z6M27vgf51OkOoYk6+k++FXzAO51oaDgfB9CvcoidSOJkDf5JLDc5EWsoQzoKyVG2u9MDhtAJd/SbmSivPyengCxK3zLHWr8lR3xg8CaMisl0hck14AZL6K2yDpueN8I7fNvRObrApWFmZx+N1r81QolsxZf5wzAy6PpIMJCaDJ31H9rpJITkweT3CNjzkCedPKMhrsZpA/lOviXQrtAchWewt+Q4UUXGgzwrff4NPVPIzbusYwOJT6ZJBXMuEe+1G+3lxVxi0X3S6svRkm70CODYfZXxEB8c3nQkL0nBOJA6ZMy/kRcYpG+qxsQa/+jkkeicAp4PGIlAgKnGQwmeeKUMbEw1Sg3wQGJ5vagUcvE67kgXR2UfH7QzUfE0biivAbujUqRM4Rhhikttygg3mSyYBnSAS0DeSgdjyAS3G1kG5OcXq8bRbc/pnJoTfz/HPBXiWZYXfI+9A/8n0kS2SEBP7IawTIIjeOOCxiDvqAzx3FtW6e3jUFDl0FaNXG15ZBKUVf3fhB4f0thYt2tPmncScd3USrcKHhzsTrw/ZrtALJLFzv64VPUFhnSLESAC/HbE+iTogMKk5BINjxKQ97fHV98iGBVZ4oLxbOmgS2oAugbhAJr76zGyruuPhPspGMx7RLdgMen2H2n4GJ2KrQb2c=
+    secure: MnoigQdRyaOUkRxSFFECLriM7V7NSN5voaSzuRhgEhae1yZG+e2h1jbOXoPdx8nXbT/2nAn3qNDGmKEue6tPfR+qkLQ+GCEsqDGtuf+fRfbq3kJuqKJzeu9f+cai+7VeIjl6PzeQNvA64NuliPKXAC5mxQN3D2vTfUo1VUN/KAl9LH9WYIAkvr2NCkNFY7D5qi3mGUm/N0PI+5KMdoXvrtMC/woyoUywo6Ozz05MweYnaJlUi7LJr2mxUJ4/g+BwiBpWu1UIUS7fjuk1XJdPg0szS8f90u1buGOV0vWtnGF27n6bqQeNcTRgLCz68uJET6Ewoam/x5DlueOyRVDYvw0aMvDGoq/Iwvu5WXXBel36ydgDSVthvSeu/GX8cXyZqFCTeVvUfR6fI/URq3Kis8PHZL72E3dzToZFvFVYVd9NKBorlIuMVSPMEPEWeDXVz27WKVTSDHpmiu3NPqlqB83aKakLXzt+k+rKSDKnucUbVchwcNe4FmSpf4eMXB53CbxU0RDkQc7JP/QygB6GNVO9VAFGPrZh/NFlV8s4USUQkrr9euGcZ56ViaqrATrY/b4U0hyS3cmS/iAfhDiBS+fgn6UudjFhTC+8yiKVl+3U24y3rZrHuxrg/5U2ojnXPa09Ql8AmQh1OWXiwMWsyRmsGQ0W43/j3wN9VMWphso=
   matrix:
-    - TEST_SUITE=test
-    - TEST_SUITE=checkstyle
+  - TEST_SUITE=test
+  - TEST_SUITE=checkstyle
 
 before_install:
-  - if [[ `npm -v` != 5.6.0 ]]; then npm i -g npm@5.6.0; fi
+- if [[ `npm -v` != 5.6.0 ]]; then npm i -g npm@5.6.0; fi
 
-install: 
-  - npm install
-  - npm install -g codecov
-  - npm install -g greenkeeper-lockfile
+install:
+- npm install
+- npm install -g codecov
+- npm install -g greenkeeper-lockfile
 
 before_script: greenkeeper-lockfile-update
 
