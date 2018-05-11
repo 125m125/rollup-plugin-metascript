@@ -38,7 +38,7 @@
         "babel-preset-env": "^1.6.1",
         "eslint": "^4.16.0",
         "nyc": "^11.4.1",
-        "rollup": "^0.57.0"
+        "rollup": "^0.58.2"
     },
     "ava": {
         "files": [
