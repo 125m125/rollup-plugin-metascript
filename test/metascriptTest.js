@@ -1,4 +1,4 @@
-import ava from "ava";
+import test from "ava";
 import metascript from "../src/metascript";
 var rollup = require("rollup").rollup;
 
@@ -12,7 +12,7 @@ function run(uut, file) {
     });
 }
 
-ava("transforms code without options", test => {
+test("transforms code without options", t => {
     var uut = metascript();
 
     return run(uut, "test/resources/simpleCode.js").then(result => {
@@ -21,11 +21,11 @@ ava("transforms code without options", test => {
         });
     }).then(generated => {
         var result = generated.code;
-        test.is(result, code_remove);
+        t.is(result, code_remove);
     });
 });
 
-ava("transforms code with options", test => {
+test("transforms code with options", t => {
     var uut = metascript({
         scope: {
             KEEP: true,
@@ -38,11 +38,11 @@ ava("transforms code with options", test => {
         });
     }).then(generated => {
         var result = generated.code;
-        test.is(result, code_noRemove);
+        t.is(result, code_noRemove);
     });
 });
 
-ava("transforms code with function options", test => {
+test("transforms code with function options", t => {
     var uut = metascript({
         scope: () => {
             return {
@@ -57,11 +57,11 @@ ava("transforms code with function options", test => {
         });
     }).then(generated => {
         var result = generated.code;
-        test.is(result, code_noRemove);
+        t.is(result, code_noRemove);
     });
 });
 
-ava("transforms multiple codes with function options", test => {
+test("transforms multiple codes with function options", t => {
     var uut = metascript({
         scope: () => {
             return {
@@ -76,18 +76,18 @@ ava("transforms multiple codes with function options", test => {
         });
     }).then(generated => {
         var result = generated.code;
-        test.is(result, code_noRemove);
+        t.is(result, code_noRemove);
     }).then(() => run(uut, "test/resources/simpleCode.js").then(result => {
         return result.generate({
             format: "es",
         });
     })).then(generated => {
         var result = generated.code;
-        test.is(result, code_noRemove);
+        t.is(result, code_noRemove);
     });
 });
 
-ava("transforms code with promised options", test => {
+test("transforms code with promised options", t => {
     var uut = metascript({
         scope: new Promise(res => {
             res({
@@ -102,32 +102,6 @@ ava("transforms code with promised options", test => {
         });
     }).then(generated => {
         var result = generated.code;
-        test.is(result, code_noRemove);
-    });
-});
-
-ava("transforms multiple codes with function options", test => {
-    var uut = metascript({
-        scope: new Promise(res => {
-            res({
-                KEEP: true,
-            });
-        }),
-    });
-
-    return run(uut, "test/resources/simpleCode.js").then(result => {
-        return result.generate({
-            format: "es",
-        });
-    }).then(generated => {
-        var result = generated.code;
-        test.is(result, code_noRemove);
-    }).then(() => run(uut, "test/resources/simpleCode.js").then(result => {
-        return result.generate({
-            format: "es",
-        });
-    })).then(generated => {
-        var result = generated.code;
-        test.is(result, code_noRemove);
+        t.is(result, code_noRemove);
     });
 });
