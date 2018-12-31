@@ -20,7 +20,7 @@ test("transforms code without options", t => {
             format: "es",
         });
     }).then(generated => {
-        var result = generated.code;
+        var result = generated.output[0].code;
         t.is(result, code_remove);
     });
 });
@@ -37,7 +37,7 @@ test("transforms code with options", t => {
             format: "es",
         });
     }).then(generated => {
-        var result = generated.code;
+        var result = generated.output[0].code;
         t.is(result, code_noRemove);
     });
 });
@@ -56,7 +56,7 @@ test("transforms code with function options", t => {
             format: "es",
         });
     }).then(generated => {
-        var result = generated.code;
+        var result = generated.output[0].code;
         t.is(result, code_noRemove);
     });
 });
@@ -75,14 +75,14 @@ test("transforms multiple codes with function options", t => {
             format: "es",
         });
     }).then(generated => {
-        var result = generated.code;
+        var result = generated.output[0].code;
         t.is(result, code_noRemove);
     }).then(() => run(uut, "test/resources/simpleCode.js").then(result => {
         return result.generate({
             format: "es",
         });
     })).then(generated => {
-        var result = generated.code;
+        var result = generated.output[0].code;
         t.is(result, code_noRemove);
     });
 });
@@ -101,7 +101,7 @@ test("transforms code with promised options", t => {
             format: "es",
         });
     }).then(generated => {
-        var result = generated.code;
+        var result = generated.output[0].code;
         t.is(result, code_noRemove);
     });
 });
