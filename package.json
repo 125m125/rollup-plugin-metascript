@@ -30,7 +30,7 @@
     "homepage": "https://github.com/125m125/splconfigurator#readme",
     "dependencies": {
         "metascript": "1.0.0",
-        "rollup-pluginutils": "2.8.1"
+        "rollup-pluginutils": "2.8.2"
     },
     "devDependencies": {
         "@babel/core": "7.6.0",
