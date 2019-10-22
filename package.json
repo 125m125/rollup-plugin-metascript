@@ -34,7 +34,7 @@
     },
     "devDependencies": {
         "@babel/core": "7.6.4",
-        "@babel/preset-env": "7.6.2",
+        "@babel/preset-env": "7.6.3",
         "@babel/register": "7.6.2",
         "ava": "2.4.0",
         "babel-plugin-istanbul": "5.2.0",
