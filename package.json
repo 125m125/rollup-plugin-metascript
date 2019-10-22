@@ -46,7 +46,7 @@
         "files": [
             "test/**/*Test.js"
         ],
-        "require": "@babel/register"
+        "require": "./test/_register.js"
     },
     "nyc": {
         "all": true,
